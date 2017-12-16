@@ -130,9 +130,32 @@ class PotentialGig extends React.Component {
     
     render() {
         //console.log('potential gig this.state: ', this.state);
-        // console.log('potential gig props: ', this.props);
+        console.log('potential gig props: ', this.props);
         if (this.props.users.length > 0) {
-            let percent = ((this.props.gig.commits / this.props.gig.min_commits)*100);
+            // let percent = ((this.props.gig.commits / this.props.gig.min_commits)*100);
+            let percent = () => { 
+                let showAttendance = (this.props.attendance).filter((x) => x.ShowcaseId === this.props.gig.id)
+                if (showAttendance.length > 0) {
+                  let showMoney = showAttendance.map(x => x.commitValue)
+                  if (showMoney.length > 0) {
+                    let sumAttendance = showMoney.reduce((a,b) => {
+                        a = a || 0;
+                        b = b || 0;
+                        return a + b;
+                        });
+                    if (sumAttendance > 0) {
+                        // need minimum value to have show .. minCommits
+                        let percentage = (sumAttendance/this.props.gig.minCommits)*100;
+                        if (percentage >= 100) {
+                            // trigger action to mark show as isCommitted
+                            // return percentage;
+                        }
+                        return percentage;
+                    } 
+                    }
+                }
+            }
+            console.log("PERCENT FILTERED BY GIG: ", percent())
             return (
                 <div className="container border p-3 m-1 small">
                     <div className="potential-gig-wrapper">
@@ -169,7 +192,7 @@ class PotentialGig extends React.Component {
                           {this.state.commits} of {this.props.gig.min_commits} commits!
                         </div>
                         <div className="potential-gig-progress-bar">
-                          <ProgressComponent percent={percent} />
+                          <ProgressComponent percent={percent()} />
                         </div>
                         <div className="potential-gig-money-commit-value">
                         </div>

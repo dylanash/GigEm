@@ -34,7 +34,6 @@ module.exports = (app, db) => {
         // console.log('getting current user', req.user)
         dbDef.User.findAll({})
         .then((users) => {
-            console.log('ZOOYORK', JSON.stringify(users))
             res.send(users) 
         })
     });

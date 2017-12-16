@@ -62,6 +62,20 @@ module.exports = (app, db) => {
     });
   });
 
+  app.get('/api/attendanceByShow',(req, res) => {
+    // console.log('eventRoute.js: attempting to check if user has committed to event');
+    // console.log('eventRoute.js req.body:', req.body)
+    console.log("GETTING SHOW ATTENDANCE REQ: ", req.query);
+    dbDef.Attendance.findAll({
+      where: {'id' : req.body.ShowcaseID}
+    })
+    .then((attendance) => {
+      console.log("RETURNED ATT: ", attendance);
+      res.send(attendance);
+    })
+  })
+
+
   app.post('/api/uncommit', (req, res) => {
     console.log('/api/uncommit UserId', req.body.user);
     console.log('/api/uncommit ShowcaseId', req.body.gig);

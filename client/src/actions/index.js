@@ -84,6 +84,12 @@ export const checkAttendance = (user, gig) => async dispatch => {
     dispatch({ type: types.CHECK_ATTENDANCE, payload: res.data })
 }
 
+export const attendanceByShow = (gig) => async dispatch => {
+    console.log("attempting to check by show", gig)
+    const res = await axios.get('/api/attendanceByShow', {'ShowcaseID': gig})
+    dispatch({ type: types.ATTENDANCE_BY_SHOW, payload: res.data })
+}
+
 export const fetchBandInfo = () => async dispatch => {
     // eslint-disable-next-line
     const res = await axios.post('/bandinfo')
@@ -110,11 +116,7 @@ export const editUserProfile = (item) => async dispatch => {
 export const fetchAllUsers = () => async dispatch => {
     // eslint-disable-next-line
     const res = await axios.get('/api/all_users')
-    // eslint-disable-next-line
-    console.log('INACTIONS,', JSON.stringify(res.data))
-    console.log('CHECK',res.data.map((obj) => Object.assign({}, obj)))
-    console.log('NO STRING', res.data)
-    
+    // eslint-disable-next-line    
     dispatch({ type: types.FETCH_ALL_USERS, payload: res.data.map((obj) => Object.assign({}, obj)) })
 }
 

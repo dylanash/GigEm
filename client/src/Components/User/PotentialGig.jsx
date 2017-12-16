@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import ProgressComponent from './ProgressComponent';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { commitToEvent, uncommitFromEvent } from '../../actions/index';
+import { commitToEvent, uncommitFromEvent, attendanceByShow } from '../../actions/index';
 import ShowcaseInfo from '../ShowDescription';
 import Payment from '../Payment';
 
@@ -131,6 +131,9 @@ class PotentialGig extends React.Component {
         //console.log('potential gig this.state: ', this.state);
         console.log('potential gig props: ', this.props);
         if (this.props.users.length > 0) {
+            // this.props.attendanceByShow(this.props.gig.id).then(() => {
+            //     console.log('attendance props: ', this.props.attendance);                
+            // })
             // let percent = ((this.props.gig.commits / this.props.gig.min_commits)*100);
             let percent = () => { 
                 let showAttendance = (this.props.attendance).filter((x) => x.ShowcaseId === this.props.gig.id)
@@ -148,6 +151,7 @@ class PotentialGig extends React.Component {
                         if (percentage >= 100) {
                             // trigger action to mark show as isCommitted
                             // return percentage;
+                            
                         }
                         return percentage;
                     } 

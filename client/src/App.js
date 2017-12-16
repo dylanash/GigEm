@@ -36,6 +36,7 @@ class App extends Component {
     this.props.fetchUserProfile()
     this.props.fetchAllUsers()
     this.props.fetchVenues()
+    this.props.attendanceByShow()
     // var socket = io();
   }
 

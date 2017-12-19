@@ -3,6 +3,9 @@ import Navbar from './Navbar';
 import BandUpcomingGig from './Band/BandUpcomingGig';
 import BandPotentialGig from './Band/BandPotentialGig';
 import MediaItem from './MediaItem';
+import firebase from '../fireB/firebase';
+import FileUploader from 'react-firebase-file-uploader';
+import * as actions from '../actions/index';
 
 import { connect } from 'react-redux';
 import { /* fetchEvents, fetchAllUsers, */ editUserProfile, fetchUserProfile, fetchProperties, addProperty } from '../actions/index';
@@ -11,16 +14,57 @@ import Profile from './ProfilePage';
 import { RIEInput, RIETextArea } from 'riek';
 import _ from 'lodash'
 
+var database = firebase.database();
+
 class BandProfile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
           linkurl: '',
-          description: ''
+          description: '',
+          avatar: '', 
+          isUploading: false,
+          progress: 0,
+          avatarURL: ''
         };
         this.props.fetchProperties();
+        this.handleUploadStart = this.handleUploadStart.bind(this);
+        this.handleProgress = this.handleProgress.bind(this);
+        this.handleUploadError = this.handleUploadError.bind(this);
+        this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
     }
 
+    handleUploadStart = () => this.setState({isUploading: true, progress: 0});
+    handleProgress = (progress) => this.setState({progress});
+    handleUploadError = (error) => {
+      this.setState({isUploading: false});
+      console.error(error);
+    }
+    handleUploadSuccess = (filename) => {
+        
+      this.setState({
+          avatar: filename, 
+          progress: 100, 
+          isUploading: false
+      });
+    
+      firebase.storage().ref('images')
+          .child(filename).getDownloadURL()
+              .then(url => {
+             
+                   database.ref().set({
+                    name: {
+                       userId: this.props.info.googleId,
+                        url: url
+                         }
+                  });
+                  this.props.savePhoto(url);
+                  this.setState({
+                      avatarURL: url
+                  });
+    
+          })
+    };
     
 
     handleChange(event, stateitem) {

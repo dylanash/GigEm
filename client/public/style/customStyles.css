@@ -396,27 +396,26 @@ button:hover {
 	padding-left: 25px;
 }
 
-.form-divs {
-	display: grid;
-	grid-template-columns: 45% 45;
-	grid-gap: 10px;
-	grid-auto-rows: minmax(100px, auto);
-	border: 2px solid;
-	border-radius: 5px;
-	padding: 1em;
+.pitch-gig-wrapper {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  grid-auto-rows: auto;
 }
 
-.event-deets {
-	grid-column: 1/2;
+.pitch-gig-left-element {
+  grid-column: 1;
 }
 
-
-
-.venue-deets {
-	grid-column: 2/3;
+.pitch-gig-right-element {
+  grid-column: 2;
+  text-align: right;
 }
 
-
+.pitch-gig-center-element {
+  grid-column: 1 / 3;
+  text-align: center;
+}
 
 /* ::-webkit-scrollbar-track
 {

@@ -385,9 +385,15 @@ button:hover {
     color: white;
 }
 
-.d-s-form {
+.form-divs {
 	display: grid;
-	grid-template-columns: 80% 10%;
+	grid-template-columns: 25% 50%;
+}
+
+
+.form-divs input {
+	grid-column: 2/3;
+	
 }
 
 /* ::-webkit-scrollbar-track

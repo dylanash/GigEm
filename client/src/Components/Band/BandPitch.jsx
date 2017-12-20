@@ -74,15 +74,16 @@ const renderDate = ({ input, label, type, meta }) => {
             <div className="form-divs">
               <div className="event-deets">
                 <div className="e-name">
-                  <label>Event Name</label>
-                    <Field
-                      name="eventName"
-                      component={renderField}
-                      // component="input"
-                      type="text"
-                      // label="Event Name"
-                      placeholder="D-lon Musk "
-                    />
+                  {/* <label className="lab-event-name">Event Name</label> */}
+                  <Field
+                    className="event-name"
+                    name="eventName"
+                    component={renderField}
+                    // component="input"
+                    type="text"
+                    label="Event Name"
+                    placeholder="D-lon Musk "
+                  />
                 </div>
                 <div className="e-date">
                   <label>Event Date</label>
@@ -106,13 +107,15 @@ const renderDate = ({ input, label, type, meta }) => {
                 </div>
               </div>
               <div className="start-time">
-                <label>Show Starts</label>
+                <label className="dylan-time">Show Starts</label>
+                  <div className="justatime">
                     <Field
                       name="startTime"
                       component="input"
                       type="text"
                       placeholder="8:00 PM"
                     />
+                  </div>
               </div>
               <div className="venue-deets">
                 <div className="v-has-venue">  

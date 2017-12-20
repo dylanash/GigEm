@@ -387,14 +387,25 @@ button:hover {
 
 .form-divs {
 	display: grid;
-	grid-template-columns: 25% 50%;
+	grid-template-columns: 45% 45;
+	grid-gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 1em;
+}
+
+.event-deets {
+	grid-column: 1/2;
 }
 
 
-.form-divs input {
+
+.venue-deets {
 	grid-column: 2/3;
-	
 }
+
+
 
 /* ::-webkit-scrollbar-track
 {

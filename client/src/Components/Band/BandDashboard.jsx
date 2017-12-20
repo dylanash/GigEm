@@ -27,37 +27,32 @@ class BandDashboard extends React.Component {
     this.dateGrab = this.dateGrab.bind(this);
   }
 
-  // this function does A LOT: 
-  // takes in a event from redux-form on BandPitch.js
-  // prevents event submission if no eventName or start date
-  // marks event TBD if No Venue box is checked
-  // adds a venue for every event
-  // formats phone # entry with regex
-  // creates new event
-  // emails user with event details
-  // updates user profile with phone number if added
-  // sends user text confirmation(if provided) with event name
-  // redirect user to UpcomingGigs page on successful submisson
-
-  handleSubmit(event) {
-    event.UserId = this.props.bandInfo.id;
-    event.finalCommitDate = this.state.finalCommitDate;
-    // prevents event submission if no eventName or start date
-    if (!event.eventName || !event.finalCommitDate) {
-      throw new SubmissionError({
-        eventName: <b>ALL EVENTS NEEDS A NAME AND START DATE</b>,
-        _error: 'Submission failed!'
-      })
-    } else {
+      // this function does A LOT: 
+      // takes in a event from redux-form on BandPitch.js
+      // prevents event submission if no eventName or start date
       // marks event TBD if No Venue box is checked
-      if (event.hasNoVenue) {
-        event.venueName = "TBD";
-        event.venueDescription =
-          `This event needs a venue. 
-          If you would like to host this venue please reach out to us.`
-      }
       // adds a venue for every event
-      this.props.addNewVenue(event)
+      // formats phone # entry with regex
+      // creates new event
+        // emails user with event details
+      // updates user profile with phone number if added
+        // sends user text confirmation(if provided) with event name
+      // redirect user to UpcomingGigs page on successful submisson
+    handleSubmit(event) {
+      // event.preventDefault()
+      event.UserId = this.props.bandInfo.id;
+      event.finalCommitDate = this.state.finalCommitDate; 
+      // prevents event submission if no eventName or start date
+      if (!event.eventName || !event.finalCommitDate) {
+        throw new SubmissionError({ eventName: <b>ALL EVENTS NEEDS A NAME AND START DATE</b>, _error: 'Submission failed!' })   
+      } else {
+        // marks event TBD if No Venue box is checked
+        if (event.hasNoVenue) {
+          event.venueName = "TBD";
+          event.venueDescription = `This event needs a venue. Contact us!`
+        }
+        // adds a venue for every event
+        this.props.addNewVenue(event)
         .then(() => {
           event.VenueId = this.props.venueInfo.id;
           event.formatPhoneNumber = (s) => {

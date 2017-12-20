@@ -396,6 +396,10 @@ button:hover {
 	padding-left: 25px;
 }
 
+.d-s-form {
+	display: grid;
+	grid-template-columns: 80% 10%;
+}
 
 /* ::-webkit-scrollbar-track
 {

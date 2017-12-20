@@ -67,11 +67,12 @@ const renderDate = ({ input, label, type, meta }) => {
 
   return (
     
-    <div className="container container-fluid border p-3 small" >
-        <div className="row">
+    <div className="d-s-form" >
+      
           <div className="col-sm">
-            <form  className="form-group" onSubmit={props.handleSubmit} >
-            <div className="col">
+            <form  onSubmit={props.handleSubmit} >
+            <div className="d-s-event-col">
+              <div className="col">
                 {/* <label>Event Name*</label> */}
                   <Field
                     name="eventName"
@@ -83,38 +84,31 @@ const renderDate = ({ input, label, type, meta }) => {
                   />
               </div>
               <div>
-                {/* <label>Select Event Start Date and End Date If Applicable</label>
-                  <div className="col">
-                    <Fields
-                      names={['start', 'end']}
-                      component={renderDates}
-                      // label="Pick Event Start Date and End Date If Applicable"
-                      // normalize={normalizeDates}
-                      // format={formatDates}
-                    />   */}
-                  <label>Event Date</label>
-                  <div className="col">
-                    <Field
-                    name="startDate"
-                    component={renderDate}
-                    type="date"
-                    // normalize={normalizeDate}
-                    // format={formatDate}
-                  />
-                  </div>
-              </div>
-              <div>
-              <div className="row">
-                <label>Event Description</label>
+                <label>Event Date</label>
+                <div className="col">
                   <Field
-                    name="eventDescription"
-                    component="input"
-                    // label="Event Description"
-                    type="text"
-                    placeholder="Describe your event.. "
-                  />
+                  name="startDate"
+                  component={renderDate}
+                  type="date"
+                  // normalize={normalizeDate}
+                  // format={formatDate}
+                />
+                </div>
               </div>
               <div>
+                <div className="row">
+                  <label>Event Description</label>
+                    <Field
+                      name="eventDescription"
+                      component="input"
+                      // label="Event Description"
+                      type="text"
+                      placeholder="Describe your event.. "
+                    />
+                </div>
+            </div>
+              <div>
+
                 <label htmlFor="hasNoVenue">Check box if there is NOT a planned venue for your event?</label>
                 <div>
                   <Field name="hasNoVenue" id="hasNoVenue" component="input" type="checkbox"/>
@@ -130,6 +124,8 @@ const renderDate = ({ input, label, type, meta }) => {
                   />
               </div>
               <div>
+            </div>
+            <div>
               <label>Venue Description</label>
                   <Field
                     name="venueDescription"
@@ -236,7 +232,7 @@ const renderDate = ({ input, label, type, meta }) => {
               </div>
             </form>
           </div> 
-        </div>
+          
       </div>
 
   )

@@ -96,6 +96,10 @@ class UpcomingGig extends React.Component {
                           { this.props.venues.filter((x) => x.id === gig.VenueId)[0] &&
                             this.props.venues.filter((x) => x.id === gig.VenueId)[0].name ? 
                             this.props.venues.filter((x) => x.id === gig.VenueId)[0].name :
+                            'Venue NA'}<br /> */}
+                          { this.props.venues.id === gig.VenueId &&
+                            this.props.venues.name === gig.name ? 
+                            this.props.venues.id === gig.name :
                             'Venue NA'}<br />
           {gig.startTime ? `Doors @ ${gig.startTime}` : 'Start time NA'}
         </div>

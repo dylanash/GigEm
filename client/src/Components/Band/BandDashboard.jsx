@@ -27,7 +27,7 @@ class BandDashboard extends React.Component {
     this.dateGrab = this.dateGrab.bind(this);
   }
 
-      // this function does A LOT: 
+    // this function does A LOT: 
       // takes in a event from redux-form on BandPitch.js
       // prevents event submission if no eventName or start date
       // marks event TBD if No Venue box is checked

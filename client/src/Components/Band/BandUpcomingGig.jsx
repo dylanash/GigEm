@@ -24,6 +24,7 @@ class UpcomingGig extends React.Component {
     this.handleUploadStart = this.handleUploadStart.bind(this);
     this.handleProgress = this.handleProgress.bind(this);
     this.handleUploadError = this.handleUploadError.bind(this);
+    // this.deletePic = this.deletePic.bind(this);
   }
 
   handleUploadStart = () => this.setState({
@@ -39,6 +40,7 @@ class UpcomingGig extends React.Component {
     });
     console.error(error);
   }
+
   handleUploadSuccess = (gig, filename) => {
     console.log("IN HANDLE UPLOAD: ", gig)
     console.log("IN HANDLE FILENAME: ", filename)
@@ -74,6 +76,13 @@ class UpcomingGig extends React.Component {
       })
   };
 
+  // deletePic(gig) {
+  //   let infos = {};
+  //   infos.photo = '';
+  //   infos.id = gig.id;
+  //   this.props.saveTheEventPhoto(infos)
+  // }
+
   renderIndividualUpcomingGig(gig) {
     return (
       <div className="container text-center">
@@ -105,9 +114,9 @@ class UpcomingGig extends React.Component {
         </div>
         <div>
               <form>
-                  {this.avatarURL ?
-                      <img src={this.avatarURL} className="user-profile-image" alt="Epic." /> :
-                      <img src={gig.photo} className="user-profile-image" alt="Event."/>  
+                  {gig.photo ?
+                      <img src={gig.photo} className="user-profile-image" alt="Epic." /> :
+                      <img src="https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb" className="user-profile-image" alt="Epic." />                      
                   }          
 
                 <FileUploader
@@ -122,6 +131,7 @@ class UpcomingGig extends React.Component {
                   onProgress={this.handleProgress}
                 />
               </form>
+              {/* <button onClick={deletePic} >Delete Photo</button> */}
             </div>
         </div>
       </div>

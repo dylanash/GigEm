@@ -201,6 +201,11 @@ class UpcomingGig extends React.Component {
                         </div>
                         <a><h4 className="potential-gig-event-name" onClick={this.openModal}>
                             {this.props.gig.name}
+                            {this.props.gig.photo ?
+                            <img src={this.props.gig.photo} className="user-profile-image" alt="Epic." /> :
+                            <img src="https://images.pexels.com/photos/386025/pexels-photo-386025.jpeg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb" className="user-profile-image" alt="Epic." />             
+                            }
+
                         </h4></a>
 
                         <div className="potential-gig-daterange">

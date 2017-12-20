@@ -385,6 +385,10 @@ button:hover {
     color: white;
 }
 
+.d-s-form {
+	display: grid;
+	grid-template-columns: 80% 10%;
+}
 
 /* ::-webkit-scrollbar-track
 {

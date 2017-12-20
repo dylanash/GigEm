@@ -62,6 +62,7 @@ class UpcomingGig extends React.Component {
     };
     
     renderIndividualUpcomingGig(gig) {
+      console.log("render individ gig props: ", this.props)
         return (                
         <div className="row m-3" key={gig.id}>
         <div className="col col-3 align-self-start">
@@ -77,9 +78,13 @@ class UpcomingGig extends React.Component {
         <div className="col col-2 align-top text-right">
           {`${(new Date(gig.finalCommitDate)).getMonth() + 1} / ${(new Date(gig.finalCommitDate)).getDate()} /
             ${(new Date(gig.finalCommitDate)).getFullYear()}`}<br />
-                          { this.props.venues.filter((x) => x.id === gig.VenueId)[0] &&
+                          {/* { this.props.venues.filter((x) => x.id === gig.VenueId)[0] &&
                             this.props.venues.filter((x) => x.id === gig.VenueId)[0].name ? 
                             this.props.venues.filter((x) => x.id === gig.VenueId)[0].name :
+                            'Venue NA'}<br /> */}
+                          { this.props.venues.id === gig.VenueId &&
+                            this.props.venues.name === gig.name ? 
+                            this.props.venues.id === gig.name :
                             'Venue NA'}<br />
           {gig.startTime ? `Doors @ ${gig.startTime}` : 'Start time NA'}
         </div>

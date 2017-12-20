@@ -50,8 +50,7 @@ import BandPitch from './BandPitch';
         // marks event TBD if No Venue box is checked
         if (event.hasNoVenue) {
           event.venueName = "TBD";
-          event.venueDescription = `This event needs a venue. 
-          If you would like to host this venue please reach out to us.`
+          event.venueDescription = `This event needs a venue. Contact us!`
         }
         // adds a venue for every event
         this.props.addNewVenue(event)

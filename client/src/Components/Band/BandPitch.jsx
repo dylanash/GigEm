@@ -71,168 +71,162 @@ const renderDate = ({ input, label, type, meta }) => {
       
           <div className="col-sm">
             <form  onSubmit={props.handleSubmit} >
-            <div className="d-s-event-col">
-              <div className="col">
-                {/* <label>Event Name*</label> */}
-                  <Field
-                    name="eventName"
-                    component={renderField}
-                    // component="input"
-                    type="text"
-                    label="Event Name"
-                    placeholder="D-lon Musk "
-                  />
-              </div>
-              <div>
-                <label>Event Date</label>
-                <div className="col">
-                  <Field
-                  name="startDate"
-                  component={renderDate}
-                  type="date"
-                  // normalize={normalizeDate}
-                  // format={formatDate}
-                />
-                </div>
-              </div>
-              <div>
-                <div className="row">
-                  <label>Event Description</label>
+            <div className="form-divs">
+              <div className="event-deets">
+                <div className="e-name">
+                  <label>Event Name</label>
                     <Field
-                      name="eventDescription"
-                      component="input"
-                      // label="Event Description"
+                      name="eventName"
+                      component={renderField}
+                      // component="input"
                       type="text"
-                      placeholder="Describe your event.. "
+                      // label="Event Name"
+                      placeholder="D-lon Musk "
                     />
                 </div>
-            </div>
-              <div>
-
-                <label htmlFor="hasNoVenue">Check box if there is NOT a planned venue for your event?</label>
-                <div>
-                  <Field name="hasNoVenue" id="hasNoVenue" component="input" type="checkbox"/>
+                <div className="e-date">
+                  <label>Event Date</label>
+                    <Field
+                    name="startDate"
+                    component={renderDate}
+                    type="date"
+                    // normalize={normalizeDate}
+                    // format={formatDate}
+                  />
+                </div>
+                <div className="e-descrip">
+                    <label>Event Description</label>
+                      <Field
+                        name="eventDescription"
+                        component="input"
+                        // label="Event Description"
+                        type="text"
+                        placeholder="Describe your event.. "
+                      />
                 </div>
               </div>
-              <label>Venue Name</label>
-                  <Field
-                    name="venueName"
-                    component="input"
-                    // label="Venue Name"
-                    type="text"
-                    placeholder="My Garage "
-                  />
+              <div className="start-time">
+                <label>Show Starts</label>
+                    <Field
+                      name="startTime"
+                      component="input"
+                      type="text"
+                      placeholder="8:00 PM"
+                    />
               </div>
-              <div>
-            </div>
-            <div>
-              <label>Venue Description</label>
-                  <Field
-                    name="venueDescription"
-                    component="textarea"
-                    // label="Venue Description"
-                    // type="text"
-                    placeholder="My Garage "
-                  />
+              <div className="venue-deets">
+                <div className="v-has-venue">  
+                  <label htmlFor="hasNoVenue">Check box if there is NOT a planned venue for your event?</label>
+                    
+                      <Field 
+                      name="hasNoVenue" 
+                      id="hasNoVenue" 
+                      component="input" 
+                      type="checkbox"/>
+                </div>
+                <div className="v-name">
+                  <label>Venue Name</label>  
+                      <Field
+                        name="venueName"
+                        component="input"
+                        // label="Venue Name"
+                        type="text"
+                        placeholder="My Garage "
+                      />
+                </div >
+                <div className="v-descrip">
+                  <label>Venue Description</label>
+                      <Field
+                        name="venueDescription"
+                        component="textarea"
+                        // label="Venue Description"
+                        // type="text"
+                        placeholder="My Garage "
+                      />
+                </div>
+                <div className ="v-location">
+                  <div className="v-address">
+                    <label>Venue Street Address</label>
+                      <Field
+                        name="address"
+                        component="input"
+                        // label="City"
+                        type="text"
+                        placeholder="123 Road St"
+                      />
+                  </div>
+                  <div className="v-city">
+                    <label>City</label>
+                      <Field
+                        name="city"
+                        component="input"
+                        // label="City"
+                        type="text"
+                        placeholder="New York "
+                      />
+                  </div>
+                  <div className="v-state">
+                    <label>State</label>
+                      <Field
+                        name="state"
+                        component="input"
+                        type="text"
+                        placeholder="NY"
+                      />
+                  </div>
+                  <div className="v-zip">
+                    <label>Zip Code</label>
+                      <Field
+                        name="zip"
+                        component="input"
+                        type="integer"
+                        placeholder="12345"
+                      />
+                  </div>
               </div>
-              <div>
-              <label>Show Starts</label>
-                  <Field
-                    name="startTime"
-                    component="input"
-                    type="text"
-                    placeholder="8:00 PM"
-                  />
-              </div>
-              <div>
-              {/* <label>Last Day to Finalize Show</label>
-              <div className="col">
-                <Field
-                  name="finaldate"
-                  component={renderDate}
-                  // normalize={normalizeDate}
-                  // format={formatDate}
-                />
-              </div> */}
-              </div >
-              <div>
-                <label>Venue Street Address</label>
-                  <Field
-                    name="address"
-                    component="input"
-                    // label="City"
-                    type="text"
-                    placeholder="123 Road St"
-                  />
-              </div>
-              <div>
-                <label>City</label>
-                  <Field
-                    name="city"
-                    component="input"
-                    // label="City"
-                    type="text"
-                    placeholder="New York "
-                  />
-              </div>
-              <div>
-                <label>State</label>
-                  <Field
-                    name="state"
-                    component="input"
-                    type="text"
-                    placeholder="NY"
-                  />
-              </div>
-              <div>
-                <label>Zip Code</label>
-                  <Field
-                    name="zip"
-                    component="input"
-                    type="integer"
-                    placeholder="12345"
-                  />
-              </div>
-              <div>
-                <label htmlFor="isCommitted">Check Box If Your Event Already Confirmed</label>
-                <div>
-                  <Field name="isCommitted" id="isCommitted" component="input" type="checkbox"/>
+              <div className="end-deets">
+                <div className="end-is-committed">
+                  <label htmlFor="isCommitted">Check Box If Your Event Already Confirmed</label>
+                  <div>
+                    <Field name="isCommitted" id="isCommitted" component="input" type="checkbox"/>
+                  </div>
+                </div>
+                <div className="end-min-val">
+                  <label>Minimum $ To Have The Event</label>
+                    <Field
+                      name="minCommits"
+                      component="input"
+                      type="integer"
+                      placeholder="10"
+                    />
+                </div>
+                <div className="end-pitch">
+                  <label>Suggested Pitch In($)</label>
+                    <Field
+                      name="price"
+                      component="input"
+                      type="integer"
+                      placeholder="5"
+                    />
+                </div>
+                <div className="end-phone">
+                  <label>Want us to send you text updates on your event?
+                    Add a phone number</label>
+                    <Field
+                      name="phone"
+                      component="input"
+                      type="string"
+                      placeholder="512-920-8543"
+                    />
                 </div>
               </div>
-              <div>
-                <label>Minimum $ To Have The Event</label>
-                  <Field
-                    name="minCommits"
-                    component="input"
-                    type="integer"
-                    placeholder="10"
-                  />
-              </div>
-              <div>
-                <label>Suggested Pitch In($)</label>
-                  <Field
-                    name="price"
-                    component="input"
-                    type="integer"
-                    placeholder="5"
-                  />
-              </div>
-              <div>
-                <label>Want us to send you text updates on your event?
-                  Add a phone number</label>
-                  <Field
-                    name="phone"
-                    component="input"
-                    type="string"
-                    placeholder="512-920-8543"
-                  />
-              </div>
-              <div>
+              <div className="submit-button">
                 <button type="submit" >Submit</button>
               </div>
+              </div>
+            </div> 
             </form>
-          </div> 
-          
+          </div>         
       </div>
 
   )

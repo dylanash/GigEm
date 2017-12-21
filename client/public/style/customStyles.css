@@ -120,19 +120,20 @@
   grid-template-columns: 10% 75% 10%;
   /* grid-gap: 1em; */
   grid-auto-rows: minmax(100, auto);
-  justify-items: center;
+  /* justify-items: center; */
   align-items: stretch;
-  margin: 10px
+  /* margin: 10px; */
+  /* border: 5px black; */
 
 }
 
 .bandContent-wrapper {
   display: grid;
   grid-template-columns: 25% 55%  30%;
-  grid-gap: 1em;
-  grid-auto-rows: minmax(100, auto);
-  justify-items: stretch;
-  align-items: stretch;
+  /* grid-gap: 1em; */
+  /* grid-auto-rows: minmax(100, auto); */
+  /* justify-items: stretch; */
+  /* align-items: stretch; */
   /* padding: 1cm 2cm 4cm 1cm; */
 
 }
@@ -161,6 +162,7 @@
   width: 100%;
     height: 40vh;
     overflow: scroll;
+    background: rgb(217, 217, 243);
 }
 
 .grid-image {
@@ -182,6 +184,7 @@
   width: auto;
     height: 750px;
   overflow: scroll;
+  /* background: rgb(217, 217, 243); */
 
 }
 
@@ -190,6 +193,7 @@
   height: auto;
   overflow-y: scroll;
   overflow-x: hidden;
+  /* background: rgb(217, 217, 243); */
 }
 
 .userProfile-wrapper > div {

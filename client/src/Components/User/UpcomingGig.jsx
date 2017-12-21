@@ -213,11 +213,15 @@ class UpcomingGig extends React.Component {
                             this.props.venues.filter((x) => x.id === this.props.gig.VenueId)[0].name ? 
                             this.props.venues.filter((x) => x.id === this.props.gig.VenueId)[0].name :
                             'Venue NA'}<br />
-                        {this.props.gig.startTime ? `Doors @ ${this.props.gig.startTime}` : 'Start time NA'}
+                        {this.props.gig.startTime ? `Doors @ ${this.props.gig.startTime.slice(0,5)}` : 'Start time NA'}
                         </div>
                         <div className="text-success potential-gig-commit-number">
-                        {/*} eslint-disable-next-line */}
-                            Fully Commited 🎉<br />
+                          
+                            { this.props.gig.isCommitted ? 
+                            <div>Fully Commited 🎉<br /></div> :
+                            <div>Current Status</div>
+                            }
+                            {/* Fully Commited 🎉<br /> */}
                             {`$`}{this.props.gig.commits} of {`$`}{this.props.gig.minCommits}!
                         </div>
                         <div className="potential-gig-progress-bar">

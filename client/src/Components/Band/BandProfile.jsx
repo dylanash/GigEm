@@ -71,6 +71,7 @@ class BandProfile extends React.Component {
               </div>
                 <div className="bandProfile-wrapper">
                     <div>
+                      TEEENN
                     </div>
                     <div className="bandContent-wrapper ">
                         <div>
@@ -105,10 +106,15 @@ class BandProfile extends React.Component {
                             </div>
                           </div>
                           
+                       
+                        <div>
+                          ??
                         </div>
                         <div>
+                          ??
+                          </div>
+                    </div>
 
-                        </div>
                   </div>
                 
             </div>
@@ -156,7 +162,7 @@ class BandProfile extends React.Component {
                         <div className="band-show-scroll border border-dark m-2">
                             <BandUpcomingGig potential={true} />
                           </div>
-                        </div>
+                    </div>
                       <div className="band-media">
                         <div className="side-scrolling border border-dark text-center p-1 m-1">
                             <h3>Band Media</h3>

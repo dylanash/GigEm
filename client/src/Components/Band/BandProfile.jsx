@@ -270,6 +270,7 @@ class BandProfile extends React.Component {
                             {(this.props.properties) ? this.props.properties
                               .filter((x) => x.UserId === selectedUser.id)
                               .map((x) => {
+                                console.log("Media Item: ", x)
                               return (<MediaItem item={x} ownUserProfile={true} />)
                               }) : (<div></div>)
                             }

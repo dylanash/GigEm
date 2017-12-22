@@ -35,20 +35,21 @@ class ShowDescription extends React.Component {
     const passedId = this.props.showId
     let selectedEvent = this.props.events.filter(show => show.id === passedId)
     let event = selectedEvent[0]
-    console.log('HER',event)
+    console.log('HER Props',event)
+    let daDate = event.finalCommitDate.slice(0,10);
     return (
       <div>
         <div className="container">
           <h1 className="display-1">{event.name}</h1>
-          <h2>ShowId: {this.props.ShowId}</h2>
+          <h2>Event Date: {daDate}</h2>
           <div>{event.description}</div>
           <div><br /></div>
-          <div><h5>Venue Placeholder</h5></div>
+          <div><h5>Address</h5>{event.address}</div>
           <div>{`${event.city}, ${event.state}`}</div>
           <div>{`${event.zip}`}</div>
           <div><br /></div>
-          <div><h5>My attendance:</h5></div>
-          <div>{this.conditionalRendering(event)}</div>
+          {/* <div><h5>My attendance:</h5></div> */}
+          {/* <div>{this.conditionalRendering(event)}</div> */}
         </div>
       
     </div>
